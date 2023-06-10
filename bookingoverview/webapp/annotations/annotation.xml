@@ -8,6 +8,12 @@
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
             <Annotations Target="cds_zfe_booking_analytics_001085.BookingType">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>CarrierID</PropertyPath>
+                        <PropertyPath>BookingDate</PropertyPath>
+                    </Collection>
+                </Annotation>
                 <Annotation Term="UI.Chart" Qualifier="FlightPriceColumn">
                     <Record Type="UI.ChartDefinitionType">
                         <PropertyValue Property="Title" String="Daily Flight Cost" />
@@ -43,6 +49,16 @@
                         <Record Type="UI.DataFieldForIntentBasedNavigation">
                             <PropertyValue Property="SemanticObject" String="Booking" />
                             <PropertyValue Property="Action" String="analysis" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zfe_booking_analytics_001085.TravelType">
+                <Annotation Term="UI.LineItem" Qualifier="OpenInProgressTravels">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Description" />
+                            <PropertyValue Property="Label" String="Travel" />
                         </Record>
                     </Collection>
                 </Annotation>

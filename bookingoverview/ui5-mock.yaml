@@ -1,5 +1,3 @@
-# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
-
 specVersion: "2.6"
 metadata:
   name: sap.fe.demo.bookingoverview
@@ -9,7 +7,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        ignoreCertError: false
         ui5:
           path:
             - /resources
@@ -18,6 +16,10 @@ server:
         backend:
           - scp: true
             path: /sap
+            url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
+          - path: /sap
+            url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
+          - path: /sap/opu/odata4/sap/zui_fe_travel_001085_o4/srvd/sap/zfe_travel_001085/0001/
             url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
     - name: fiori-tools-appreload
       afterMiddleware: compression
@@ -35,3 +37,12 @@ server:
             mockdataPath: ./webapp/localService/data
             generateMockData: true
         annotations: []
+        service:
+          - urlPath: /sap/opu/odata/sap/ZUI_BOOKING_ANAL_001085_O2
+            generateMockData: true
+            metadataXmlPath: ./webapp/localService/mainService/metadata.xml
+            mockdataRootPath: ./webapp/localService/data
+          - urlPath: /sap/opu/odata4/sap/zui_fe_travel_001085_o4/srvd/sap/zfe_travel_001085/0001/
+            metadataXmlPath: ./webapp/localService/zfe_travel_001085/metadata.xml
+            mockdataRootPath: ./webapp/localService/zfe_travel_001085/mockdata
+            generateMockData: true

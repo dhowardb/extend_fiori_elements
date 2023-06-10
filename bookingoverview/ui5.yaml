@@ -19,6 +19,10 @@ server:
           - scp: true
             path: /sap
             url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
+          - path: /sap
+            url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
+          - path: /sap/opu/odata4/sap/zui_fe_travel_001085_o4/srvd/sap/zfe_travel_001085/0001/
+            url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
