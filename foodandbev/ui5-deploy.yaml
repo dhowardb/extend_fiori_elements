@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: sap.fe.demo.foodandbev
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://405e183a-28de-4d81-92fd-4d082cf16a3f.abap.us10.hana.ondemand.com
+          scp: true
+        app:
+          name: ZZ_UI_FNB_HOW
+          description: Food and Bev deploy -Howard
+          package: ZZ_FIORI_ELEMENT_EXTEND_DEPLOY
+          transport: TRLK901713
+        exclude:
+          - /test/
